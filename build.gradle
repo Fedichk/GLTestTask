@@ -15,4 +15,3 @@ dependencies {
     compile 'mysql:mysql-connector-java:8.0.11'
     testCompile 'junit:junit:4.12'
 }
-
