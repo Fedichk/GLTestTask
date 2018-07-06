@@ -44,6 +44,7 @@ public class DataBaseCreator {
     public void createWorkPeriodTable() {
 
         String createWorkPeriodTableSQL = "CREATE TABLE IF NOT EXISTS work_period ("
+                + "id INT NOT NULL PRIMARY KEY, "
                 + "employee_id INT, "
                 + "project_id INT, "
                 + "start_date_work_on_project DATE NOT NULL, "
@@ -62,7 +63,7 @@ public class DataBaseCreator {
 
     public void fillInEmployeeTable() {
 
-        String fillInEmployeeTableSQL = "INSERT INTO employee "
+        String fillInEmployeeTableSQL = "INSERT IGNORE INTO employee "
                 + "VALUES "
                 + "(1, 'Max', 'max@gmail.com', 'PM'), "
                 + "(2, 'Anna', 'anna@gmail.com', 'QA'), "
@@ -86,7 +87,7 @@ public class DataBaseCreator {
 
     public void fillInProjectTable() {
 
-        String fillInProjectTableSQL = "INSERT INTO project "
+        String fillInProjectTableSQL = "INSERT IGNORE INTO project "
                 + "VALUES "
                 + "(1, 'Car project', 'Car board systems', '2016-01-15', '2018-07-05'), "
                 + "(2, 'Medical project', 'System for hospitals', '2017-03-15', '2018-05-07'), "
@@ -102,22 +103,22 @@ public class DataBaseCreator {
 
     public void fillInWorkPeriodTable() {
 
-        String fillInWorkPeriodTableSQL = "INSERT INTO work_period "
+        String fillInWorkPeriodTableSQL = "INSERT IGNORE INTO work_period "
                 + "VALUES "
-                + "('1', '1', '2016-01-15', '2018-07-05'), "
-                + "('2', '1', '2016-01-15', '2017-03-14'), "
-                + "('2', '2', '2017-03-15', '2018-05-07'), "
-                + "('3', '1', '2016-01-15', '2018-07-05'), "
-                + "('4', '1', '2016-01-15', '2018-07-05'), "
-                + "('5', '1', '2016-01-15', '2018-07-05'), "
-                + "('6', '2', '2017-03-15', '2018-05-07'), "
-                + "('7', '2', '2017-03-15', '2018-05-07'), "
-                + "('8', '1', '2016-01-15', '2018-02-11'), "
-                + "('8', '3', '2017-02-12', '2018-04-20'), "
-                + "('8', '2', '2018-04-21', '2018-05-07'), "
-                + "('9', '3', '2017-02-12', '2018-07-04'), "
-                + "('10', '3', '2017-02-12', '2018-07-04'), "
-                + "('11', '3', '2017-07-18', '2018-07-04'); ";
+                + "(1, '1', '1', '2016-01-15', '2018-07-05'), "
+                + "(2, '2', '1', '2016-01-15', '2017-03-14'), "
+                + "(3, '2', '2', '2017-03-15', '2018-05-07'), "
+                + "(4, '3', '1', '2016-01-15', '2018-07-05'), "
+                + "(5, '4', '1', '2016-01-15', '2018-07-05'), "
+                + "(6, '5', '1', '2016-01-15', '2018-07-05'), "
+                + "(7, '6', '2', '2017-03-15', '2018-05-07'), "
+                + "(8, '7', '2', '2017-03-15', '2018-05-07'), "
+                + "(9, '8', '1', '2016-01-15', '2018-02-11'), "
+                + "(10, '8', '3', '2017-02-12', '2018-04-20'), "
+                + "(11, '8', '2', '2018-04-21', '2018-05-07'), "
+                + "(12, '9', '3', '2017-02-12', '2018-07-04'), "
+                + "(13, '10', '3', '2017-02-12', '2018-07-04'), "
+                + "(14, '11', '3', '2017-07-18', '2018-07-04'); ";
 
         try (Connection connection = DBConnector.getDBConnection();
              Statement statement = connection.createStatement()) {
